@@ -70,8 +70,9 @@ public class Pet {
 
     //Pets will getting hungry every minute (full--;) if the are waiting or doing something what is not eat.
     public void waiting(){
-        //add tick method 
+
         if(status.equalsIgnoreCase("Waiting")){
+        //add tick method with the condition of every minute it going to loose 1 point of full
             full--;
             if(full<0 && full>-10){
                 health--;
