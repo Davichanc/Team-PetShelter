@@ -8,10 +8,11 @@ public class Pet {
     public int mood;
     public String status = "Waiting";
     public boolean dirty;
+    
     public String description;
 
 public Pet(String name) {
-    this.info = 100; 
+    this.info = 100;
     // Initial status set to 100
     this.name = name;
     }
@@ -27,7 +28,7 @@ public Pet(String name) {
 
     public void updateInfo() {
         // Decrease status by 5 if no task is entered within 30 seconds
-        info -= 5; 
+        info -= 5;
         System.out.println(name + "'s status updated: " + info);
     }
 
