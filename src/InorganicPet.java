@@ -1,3 +1,3 @@
-public abstract class InorganicPet {
+public class InorganicPet extends Pet{
     
 }

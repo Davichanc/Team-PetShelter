@@ -1,6 +1,6 @@
 
 
-public class Pet {
+public abstract class Pet {
     public String name;
     public int health;
     public int full;
