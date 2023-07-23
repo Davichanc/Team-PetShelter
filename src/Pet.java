@@ -34,7 +34,7 @@ public Pet(String name) {
 
     public void resetInfo() {
         // Reset status to 100 when a new task is entered
-        info = 100; 
+        info = 100;
         System.out.println(name + "'s status reset to 100.");
     }
 
