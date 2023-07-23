@@ -14,6 +14,7 @@ public class Pet {
 public Pet(String name) {
     this.info = 100;
     // Initial status set to 100
+
     this.name = name;
     }
 
