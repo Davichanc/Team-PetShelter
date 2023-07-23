@@ -1,7 +1,8 @@
 
 
-public abstract class Pet {
+public class Pet {
     public String name;
+    public int info;
     public int health;
     public int full;
     public int mood;
@@ -9,6 +10,32 @@ public abstract class Pet {
     public boolean dirty;
     public String description;
 
+public Pet(String name) {
+    this.info = 100; 
+    // Initial status set to 100
+    this.name = name;
+    }
+
+    public void setInfo(int info) {
+        this.info = info;
+    }
+
+    public int getInfo() {
+        return info;
+    }
+
+
+    public void updateInfo() {
+        // Decrease status by 5 if no task is entered within 30 seconds
+        info -= 5; 
+        System.out.println(name + "'s status updated: " + info);
+    }
+
+    public void resetInfo() {
+        // Reset status to 100 when a new task is entered
+        info = 100; 
+        System.out.println(name + "'s status reset to 100.");
+    }
 
     public String getName() {
         return name;
@@ -40,8 +67,9 @@ public abstract class Pet {
     public void setDescription(String description) {
         this.description = description;
     }
-    public Pet(String name, int health, int full, boolean dirty, String description) {
+    public Pet(String name, int info, int health, int full, boolean dirty, String description) {
         this.name = name;
+        this.info = info;
         this.health = health;
         this.full = full;
         this.dirty = dirty;
