@@ -56,6 +56,7 @@ public abstract class Pet {
             full--;
             if(full<0 && full>-10){
                 health--;
+                System.out.println("Pet is losing health...");
             }
         } else {
             System.out.println("Pet cannot play because is: " + status);
@@ -64,22 +65,45 @@ public abstract class Pet {
 
     public void feeding(){
         if(status.equalsIgnoreCase("Waiting")){
-            System.out.println("The");
+            if(full<10){
+                full++;
+                if(health<10){
+                    health++;
+                }
+            System.out.println("The pet is being fed");
+            }else{
+                System.out.println("Pet cannot be fed if its full!!!");
+            }
+        } else{
+            System.out.println("Pet cannot be fed because is: "+ status+"need to be waiting.");
         }
     }
 
     //Pets will getting hungry every minute (full--;) if the are waiting or doing something what is not eat.
     public void waiting(){
-
         if(status.equalsIgnoreCase("Waiting")){
         //add tick method with the condition of every minute it going to loose 1 point of full
-            full--;
-            if(full<0 && full>-10){
+            if(full>0){
+                full--;
+            } else if(full<0 && full>-10){
                 health--;
                 full--;
+                System.out.println("Pet is losing health...");
             }
         }
+    }
 
+    public void cleanLitter(){
+        if(dirty && status.equalsIgnoreCase("Waiting")){
+            System.out.println("The litter is dirty ... cleaning the litter...");
+            dirty = false;
+        }else{
+            System.out.println("Cannot clean the litter if the pet is: "+ status +"need to be waiting.");;
+        }
+    }
+
+    public String descriptionOfPet(){
+        return null;
     }
 
 
