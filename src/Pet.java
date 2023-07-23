@@ -5,7 +5,7 @@ public class Pet {
     public int health;
     public int full;
     public int mood;
-    public String status;
+    public String status = "Waiting";
     public boolean dirty;
     public String description;
 
@@ -48,18 +48,38 @@ public class Pet {
         this.description = description;
     }
     
+    // Make every function to been doing  for 5 seconds after that the status of the pet will be waiting for another action
     public void play(){
         if(status.equalsIgnoreCase("Waiting")){
             System.out.println("The pet is playing");
             mood++;
             full--;
-            if(full<0){
+            if(full<0 && full>-10){
                 health--;
             }
+        } else {
+            System.out.println("Pet cannot play because is: " + status);
         }
     }
 
-    public void 
+    public void feeding(){
+        if(status.equalsIgnoreCase("Waiting")){
+            System.out.println("The");
+        }
+    }
+
+    //Pets will getting hungry every minute (full--;) if the are waiting or doing something what is not eat.
+    public void waiting(){
+        //add tick method 
+        if(status.equalsIgnoreCase("Waiting")){
+            full--;
+            if(full<0 && full>-10){
+                health--;
+                full--;
+            }
+        }
+
+    }
 
 
 
