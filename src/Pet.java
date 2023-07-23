@@ -7,6 +7,7 @@ public abstract class Pet {
     public int mood;
     public String status = "Waiting";
     public boolean dirty;
+    
     public String description;
 
 
