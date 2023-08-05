@@ -1,42 +1,95 @@
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class PetShelter {
-    public Map<String, Pet> pets;
-    public Timer timer;
+    private Map<String, Pet> shelter = new HashMap<String, Pet>();
 
-    public PetShelter() {
-        pets = new HashMap<>();
-        timer = new Timer();
-    }
-    public void addPet(String name) {
-        pets.put(name, new Pet(name));
+    public Collection<Pet> getAllPets()
+    {
+        return shelter.values();
     }
 
-    public Pet getPet(String name) {
-        return pets.get(name);
+    public Pet getPet(String petName)
+    {
+        return shelter.get(petName);
     }
 
-    public void startTasks() {
-        timer.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                for (Pet pet : pets.values()) {
-                    pet.updateInfo();
-                }
+    public void addPet(Pet newPet)
+    {
+        shelter.put(newPet.getPetName(), newPet);
+    }
+
+    public void adoptPet(String petName)
+    {
+        shelter.remove(petName);
+    }
+
+    public void feedOrganicPets()
+    {
+        for(Pet pet : getAllPets())
+        {
+            if(pet instanceof OrganicPet){
+                ((OrganicPet) pet).changeHunger(-3);
             }
-            // Schedule the task to run every 30 seconds (30,000 milliseconds)
-        }, 30000, 30000); 
+        }
     }
 
-    public void enterTask(String petName) {
-        Pet pet = pets.get(petName);
-        if (pet != null) {
-            pet.resetInfo();
-        } else {
-            System.out.println("Pet not found.");
+    public void feedRoboticPets()
+    {
+        for(Pet pet : getAllPets())
+        {
+            if(pet instanceof RoboticPet){
+                ((RoboticPet) pet).changeOil(-5);
+            }
+        }
+    }
+
+    public void waterOrganicPets()
+    {
+        for(Pet pet : getAllPets()) //VirtualPet pet : shelter.values()
+        {
+            if(pet instanceof OrganicPet){
+                ((OrganicPet) pet).changeThirst(-3);
+            }
+        }
+    }
+
+    public void playPets()
+    {
+        for(Pet pet : getAllPets())
+        {
+            if(pet instanceof OrganicPet){
+                ((OrganicPet) pet).changeBoredom(-3);
+            }
+        }
+    }
+
+    public void rechargeRobotic()
+    {
+        for(Pet pet : getAllPets())
+        {
+            if(pet instanceof RoboticPet){
+                ((RoboticPet) pet).rechargePet(100);
+            }
+        }
+    }
+
+    public void tick()
+    {
+        for(Pet pet : getAllPets())
+        {
+            if(pet instanceof OrganicPet){
+                ((OrganicPet) pet).changeHunger(+1);
+                ((OrganicPet) pet).changeThirst(+1);
+                ((OrganicPet) pet).changeBoredom(+1);
+            }
+            else if(pet instanceof RoboticPet){
+                ((RoboticPet) pet).changeOil(-5);
+                ((RoboticPet) pet).rechargePet(-2);
+            }
         }
     }
 }
