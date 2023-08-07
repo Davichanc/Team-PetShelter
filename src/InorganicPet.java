@@ -15,11 +15,29 @@ public class InorganicPet extends Pet{
         super(name,type, info, health, full, dirty, description);
         this.rust = rust;
     }
+    public void oiling() {
+        this.rust -= 5;
+        if (status.equalsIgnoreCase("Waiting")) {
+            if (full < 10) {
+                full++;
+            }
+            if (health < 10) {
+                health++;
+               
+
+                System.out.println(this.name +" is being oiled");
+            } else {
+                System.out.println(this.name +" is fully oiled");
+            }
+        } else {
+            System.out.println("Pet cannot be oiled because is: " + status + "need to be waiting.");
+        }
+    }
    
     
     public String toString() {
-        return ("----------------------------------------------------------------|") + " \n" + "        " + name + "\t    " + " | "
-                + "rust  " + this.rust + "\t       " + " | " + "health   "+ this.health +"\t         " + this.description + "\t"  
+        return ("----------------------------------------------------------------|") + " \n" + "        " + name + "   robot" + "| "
+                + "rust  " + this.rust + "\t       " + "    | " + "health   "+ this.health +"\t        " + this.description + "\t"  
                 + "\n";
 
     }

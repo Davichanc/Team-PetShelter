@@ -7,9 +7,35 @@ public class OrganicPet extends Pet{
         this.litter = litter;
         this.hunger=hunger;
     }
+    public void feeding() {
+        
+        if (status.equalsIgnoreCase("Waiting")) {
+            this.hunger -= 5;
+            if (full < 10) {
+                full++;
+                if (health < 10) {
+                    health++;
+
+                }
+               
+            } else {
+                System.out.println(this.name + "Pet cannot be fed if its full!!!");
+            }
+        } else {
+            System.out.println(this.name +" cannot be fed because is: " + status + "need to be waiting.");
+        }
+       
+    }
+    public void cleanTheCage(){
+        System.out.println("your dogs cage is cleaned");
+        litter=0;
+        health=100;
+    }
+    
+    
     public String toString() {
         return ("----------------------------------------------------------------|") + " \n" + "        " + name + "\t" +this.type+ " | "
-                + "hunger  " + this.hunger + "\t" + " | " + "health  "+ this.health +  "\t litter  " +this.litter+ "\t"+ this.description + "\t" 
+                + "hunger  " + this.hunger + "\t" + "   | " + "health  "+ this.health +  "\t litter  " +this.litter+ "\t"+ this.description + "\t" 
                 + "\n";
 
     }

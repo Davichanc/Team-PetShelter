@@ -40,7 +40,7 @@ public class Pet {
     public void updateInfo() {
         // Decrease status by 5 if no task is entered within 30 seconds
         info -= 5;
-        System.out.println(name + "'s status updated: " + "its health is " + health);
+        //System.out.println(name + "'s status updated: " + "its health is " + health);
         this.health--;
 
     }
@@ -101,8 +101,7 @@ public class Pet {
         this.type = type;
     }
 
-    // Make every function to been doing for 5 seconds after that the status of the
-    // pet will be waiting for another action
+//function to play with a pet
     public void play() {
         if (status.equalsIgnoreCase("Waiting")) {
             System.out.println("You are Playing with " + this.name);
@@ -117,56 +116,15 @@ public class Pet {
             System.out.println(this.name + "cannot play because is: " + status);
         }
     }
-//function to feed pet
-    public void feeding() {
-        
-        if (status.equalsIgnoreCase("Waiting")) {
-            this.hunger -= 5;
-            if (full < 10) {
-                full++;
-                if (health < 10) {
-                    health++;
 
-                }
-               
-            } else {
-                System.out.println(this.name + "Pet cannot be fed if its full!!!");
-            }
-        } else {
-            System.out.println(this.name +" cannot be fed because is: " + status + "need to be waiting.");
-        }
-       
-    }
+    
 //function to walk the pet
     public void walk() {
         System.out.println("you are walking your" + this.name);
         this.health += 5;
     }
-//functio to oil the pet
-    public void oiling() {
-        this.rust -= 5;
-        if (status.equalsIgnoreCase("Waiting")) {
-            if (full < 10) {
-                full++;
-            }
-            if (health < 10) {
-                health++;
-               
 
-                System.out.println(this.name +" is being oiled");
-            } else {
-                System.out.println(this.name +" is fully oiled");
-            }
-        } else {
-            System.out.println("Pet cannot be oiled because is: " + status + "need to be waiting.");
-        }
-    }
-    //function to clean dogs cage
-    public void cleanCage(){
-        System.out.println("your dogs cage is cleaned");
-        litter=0;
-        health=100;
-    }
+    
 //tick function 
     public void tick() {
         this.rust += 5;
@@ -188,7 +146,7 @@ public class Pet {
             }
         }
     }
-
+//function to clean litter
     public void cleanLitter() {
         if (dirty && status.equalsIgnoreCase("Waiting")) {
             System.out.println("The litter is dirty ... cleaning the litter...");
