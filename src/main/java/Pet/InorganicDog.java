@@ -1,18 +1,9 @@
 package main.java.Pet;
-public class InorganicDog {
-    
-    public static  Pet[] values() {
-        return null;
-    }
+public class InorganicDog extends Pet{
 
-    public static  Pet get(String name) {
-        return null;
-    }
-
-    public static void remove(String name) {
-    }
-
-    public static  void put(String name, Pet pet) {
+    public InorganicDog(String name, String status) {
+        super(name, status);
+        //TODO Auto-generated constructor stub
     }
 
 }

@@ -9,6 +9,18 @@ public class PetShelter {
     public Map<String, Pet> pets;
     public Timer timer;
 
+    public void displayPets() {
+        for (Pet pet : pets.values()) {
+            if(pet instanceof OrganicDog) {
+            System.out.println(pet.getName() + "" + pet.getThirst() + "" + pet.getHunger()
+            + "" + pet.getStatus() + "" + pet.getBoredom() + "" + pet.getWaste() + "" + pet.getHealth()); }
+            else if(pet instanceof InorganicDog) {
+            System.out.println(pet.getName() + "" + pet.getOilLevel()  + "" + pet.getHunger()
+            + "" + pet.getStatus() + "" + pet.getBoredom() + "" + pet.getWaste() + "" + pet.getHealth());
+            }
+        }
+    }
+
     public PetShelter() {
         pets = new HashMap<>();
         timer = new Timer();
@@ -23,32 +35,38 @@ public class PetShelter {
 
     public void feedAllPets() {
         for (Pet pet : pets.values()) {
-            ((Pet) pet).feed();
+            pet.feed();
         }
     }
 
     public void feedOrganicPets() {
         for (Pet pet : pets.values()) {
-            pet.feed();
+            pet.feedOrganic();
         }
+        
     }
 
-public void feedInorganicPets() {
+    public void feedInorganicPets() {
         for (Pet pet : pets.values()) {
-            pet.feed();
+            pet.feedInorganic();
         }
     }
 
     public void giveWaterOrganicPets() {
         for (Pet pet : pets.values()) {
-            ((Pet) pet).giveOrganicPetsWater();
+            pet.giveOrganicPetsWater();
         }
     }
 
     public void giveOilInorganicPets() {
         for (Pet pet : pets.values()) {
-            pet.giveInorganicPetsOil();
+            if (pet instanceof InorganicCat) {
+                ((InorganicCat) pet).giveInorganicPetsOil();
+                } else if (pet instanceof InorganicDog) {
+                    ((InorganicDog) pet).giveInorganicPetsOil();
+                }
         }
+        
     }
 
     public void playWithPet(String name) {
@@ -97,11 +115,12 @@ public void feedInorganicPets() {
             System.out.println("Pet not found.");
         }
     }
-    public void displayPets() {
-    }
     public void tickInorganicPets() {
     }
     public void tickOrganicPets() {
+    }
+
+    public void giveInorganicPetsOil() {
     }
 }
 

@@ -8,15 +8,15 @@ public class PetShelterApp {
         PetShelter shelter = new PetShelter();
 
         // Add some initial pets to the shelter
-        shelter.addPet(new Pet("Organic Dog", "Dark Brown short fur Dog", 50, 50, 50, 50, 100));
-        shelter.addPet(new Pet("Organic Cat", "Black and White furry Cat", 50, 50, 50, 50, 100));
-        shelter.addPet(new Pet("Robotic Dog", "Shinny Red", 50, 50, 50, 50, 100));
-        shelter.addPet(new Pet("Robotic Cat", "Shinny Pink", 50, 50, 50, 50, 100));
+        shelter.addPet(new Pet("Organic Dog", "Dark Brown short fur Dog", 50, 50, 50, 50, 100, 100));
+        shelter.addPet(new Pet("Organic Cat", "Black and White furry Cat", 50, 50, 50, 50, 100, 100));
+        shelter.addPet(new Pet("Robotic Dog", "Shinny Red", 50, 50, 50, 50, 100, 100));
+        shelter.addPet(new Pet("Robotic Cat", "Shinny Pink", 50, 50, 50, 50, 100, 100));
 
         System.out.println("Welcome to Our Virtual Pet Shelter!");
+        shelter.displayPets();
 
         while (true) {
-            shelter.displayPets();
             System.out.println("\n-----------------------");
             System.out.println("Current Pets in Shelter:");
             for (Pet pet : shelter.getAllPets()) {
@@ -81,19 +81,25 @@ public class PetShelterApp {
                     String name = input.nextLine();
                     System.out.println("Enter the pet's description:");
                     String description = input.nextLine();
-                    Pet newPet = new Pet(name, description, choice, choice, choice, choice, choice);
+                    Pet newPet = new Pet(name, description, choice, choice, choice, choice, choice, choice);
                     shelter.addPet(newPet);
                     break;
                 // Give organic pets water
                 case 7:
+                    shelter.giveWaterOrganicPets();
+                    break;
+                case 8:
+                    shelter.giveInorganicPetsOil();
+                    break;
+                case 9:
                     shelter.tickOrganicPets();
                     break;
                 // Give robotic pets oil
-                case 8:
+                case 10:
                     shelter.tickInorganicPets();
                     break;
                 // Clean up all pets
-                case 9:
+                case 11:
                     shelter.tickAllPets();
                     break;
                 case 0:

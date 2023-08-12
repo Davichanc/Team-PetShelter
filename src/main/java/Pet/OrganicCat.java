@@ -1,18 +1,11 @@
 package main.java.Pet;
-public class OrganicCat {
-    
-    public static  Pet[] values() {
-        return null;
+
+public class OrganicCat extends Pet{
+
+    public OrganicCat(String name, String status) {
+        super(name, status);
+        //TODO Auto-generated constructor stub
     }
 
-    public static  Pet get(String name) {
-        return null;
-    }
-
-    public static void remove(String name) {
-    }
-
-    public static  void put(String name, Pet pet) {
-    }
 
 }

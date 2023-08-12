@@ -6,30 +6,60 @@ class Pet {
     private String status;
     private int hunger;
     private int thirst;
+    private int oilLevel;
     private int boredom;
     private int waste;
     private int health;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public int getHunger() {
+        return hunger;
+    }
+
+    public int getThirst() {
+        return thirst;
+    }
+
+    public int getOilLevel() {
+        return oilLevel;
+    }
+
+    public int getBoredom() {
+        return boredom;
+    }
+
+    public int getWaste() {
+        return waste;
+    }
+
+    public int getHealth() {
+        return health;
+    }
 
     public Pet(String name, String status) {
         this.name = name;
         this.status = status;
         this.hunger = 50;
         this.thirst = 50;
+        this.oilLevel = 50;
         this.boredom = 50;
         this.waste = 50;
         this.health = 100;
 
     }
 
-    public Pet(String name, String status, int hunger, int boredom, int thirst, int waste, int health) {
+    public Pet(String name, String status, int hunger, int boredom, int thirst, int oilLevel, int waste, int health) {
         this.name = name;
         this.status = status;
         this.hunger = hunger;
         this.thirst = thirst;
+        this.oilLevel = oilLevel;
         this.boredom = boredom;
         this.waste = waste;
         this.health = health;
-
 
     }
 
@@ -46,14 +76,14 @@ class Pet {
         }
     }
 
-        public void feedInorganic() {
+    public void feedInorganic() {
         hunger -= 20;
         if (hunger < 0) {
             hunger = 0;
         }
     }
 
-        public void feedOrganic() {
+    public void feedOrganic() {
         hunger -= 20;
         if (hunger < 0) {
             hunger = 0;
@@ -68,9 +98,9 @@ class Pet {
     }
 
     public void giveInorganicPetsOil() {
-        thirst -= 20;
-        if (thirst < 0) {
-            thirst = 0;
+        oilLevel -= 20;
+        if (oilLevel < 0) {
+            oilLevel = 0;
         }
     }
 
@@ -99,7 +129,8 @@ class Pet {
     @Override
     public String toString() {
         return name + " - " + status + " | Hunger: " + hunger + " | Thirst: " + thirst +
-                " | Boredom: " + boredom + " | Waste: " + waste + " | Health: " + health + "\n";
+                " | OilLevel: " + oilLevel + " | Boredom: " + boredom + " | Waste: " + waste + " | Health: " + health
+                + "\n";
     }
 
     public String getName() {
